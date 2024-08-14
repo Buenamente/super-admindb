@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- CSS -->
+    <link rel="stylesheet" href="styleadmin.css">
+    <link rel="stylesheet" href="dashboardadmin.css">
+    <title>User Activities</title>
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <img class="logo" src="pictures/horizontallogo.png" alt="logo">
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="index.html">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="user.html">
+                    <i class='bx bxs-user'></i>
+                    <span class="text">User Info</span>
+                </a>
+            </li>
+            <li>
+                <a href="historylogs.php">
+                    <i class='bx bxs-calendar-check'></i>
+                    <span class="text">History Logs</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="userActivities.html">
+                    <i class='bx bxs-notification'></i>
+                    <span class="text">User Activities</span>
+                </a>
+            </li>
+            <li>
+                <a href="notification.html">
+                    <i class='bx bxs-notification'></i>
+                    <span class="text">Alert/Notifications</span>
+                </a>
+            </li>
+            <li>
+                <a href="registration.html">
+                    <i class='bx bxs-user-plus'></i>
+                    <span class="text">Registration</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="../index.html" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- CONTENT -->
+    <section id="content">
+        <!--navbar-->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <button class="search-btn"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+            <div class="calendar">
+                <div class="cd">
+                    <i class='bx bx-calendar'></i>
+                </div>
+                <div id="calendar"></div>
+            </div>
+        
+            <div id="profile" class="profile">
+                <img src="assets/profile2.png" alt="Profile Picture" id="profile-picture" />
+                <div id="profile-dropdown" class="profile-dropdown">
+                    <a href="#">Change Profile Picture</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+        </nav>
+        <!--navbar-->
+         
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>User Activities</h1>
+                </div>
+            </div>
+            <div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>User Activities</h3>
+                    </div>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>RFID Tag</th>
+                                <th>Time In</th>
+                                <th>Time Out</th>
+                                <th>Status</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-activities-table">
+                            <!-- User-specific rows will be inserted here -->
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="calendar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            const userActivitiesTable = document.getElementById('user-activities-table');
+            const activities = [
+                { name: 'Kyle', rfidTag: '3Ef2-C43A-32AF', timeIn: '08:30 AM', timeOut: '05:00 PM', status: 'Present', location: 'Room 1' },
+                { name: 'Pacu', rfidTag: '32UI-H3EF4', timeIn: '09:15 AM', timeOut: '06:00 PM', status: 'Present', location: 'Room 2' }
+            ];
+
+            if (name) {
+                // Set the title or any other relevant information
+                document.querySelector('.head-title .left h1').textContent = `Activities for ${name}`;
+                
+                // Filter and display activities for the specific user
+                const userActivities = activities.filter(activity => activity.name === name);
+                userActivities.forEach(activity => {
+                    userActivitiesTable.innerHTML += `
+                        <tr>
+                            <td>${activity.name}</td>
+                            <td>${activity.rfidTag}</td>
+                            <td>${activity.timeIn}</td>
+                            <td>${activity.timeOut}</td>
+                            <td>${activity.status}</td>
+                            <td>${activity.location}</td>
+                        </tr>
+                    `;
+                });
+            } else {
+                // Display all activities
+                activities.forEach(activity => {
+                    userActivitiesTable.innerHTML += `
+                        <tr>
+                            <td>${activity.name}</td>
+                            <td>${activity.rfidTag}</td>
+                            <td>${activity.timeIn}</td>
+                            <td>${activity.timeOut}</td>
+                            <td>${activity.status}</td>
+                            <td>${activity.location}</td>
+                        </tr>
+                    `;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

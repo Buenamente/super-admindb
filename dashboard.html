@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<!-- My CSS -->
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/dashboard.css">
+	<title>AdminHub</title>
+</head>
+<body>
+
+ 
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<div class="logo1">
+			<img class="logo" src="pictures/horizontallogo.png" alt="logo" srcset="">
+		   </div>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="dashboard.html">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="Create_Admin_account.html">
+					<i class='bx bxs-user' ></i>
+					<span class="text">Create Admin account</span>
+				</a>
+			</li>
+			<li>
+				<a href="Manage_Admin_account.php">
+					<i class='bx bxs-calendar-check' ></i>
+					<span class="text">Manage Admin account</span>
+				</a>
+			</li>
+			<li>
+				<a href="Admin_&_User_List.html">
+					<i class='bx bxs-notification' ></i>
+					<span class="text">Admin & User List</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+
+			<li>
+				<a href="index.html" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+            <i class='bx bx-menu' ></i>
+			<form action="#">
+				<div class="form-input">
+ 
+
+					<button  class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<div class="calendar">
+				<div class="cd">
+				<i class='bx bx-calendar'></i>
+			    </div>
+				<div id="calendar"></div>
+			</div>
+		
+			<div id="profile" class="profile">
+				<img src="assets/profile2.png" alt="Profile Picture" id="profile-picture" />
+				<div id="profile-dropdown" class="profile-dropdown">
+					<a href="#">Change Profile Picture</a>
+					<a href="#">Logout</a>
+				</div>
+        </nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Dashboard</h1>
+				</div>
+			</div>
+           
+			<ul class="box-info">
+				<li>
+					<i class='bx bxs-group' ></i>
+					<span class="text">
+						<h3>18</h3>
+						<p>Users Count</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-user' ></i>
+					<span class="text">
+						<h3>6</h3>
+						<p>Admin Count</p>
+					</span>
+				</li>
+			</ul>
+
+			<div class="chart-container">
+                <div class="chart-box">
+                    <canvas id="chartContainerLine"></canvas>
+                </div>
+                <div class="chart-box">
+                    <canvas id="chartContainerPie"></canvas>
+                </div>
+            </div>
+
+
+
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+
+ <style>
+	#content main .box-info li {
+            justify-content: center;
+        }
+
+        #content main .box-info {
+            justify-items: center;
+        }
+
+        /* Chart container styling */
+        .chart-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .chart-box {
+            flex: 1;
+            background: var(--light);
+            border-radius: 20px;
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chart-box canvas {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+
+		@media (max-width: 768px) {
+            .table-data, .order, .chart-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .table-data table {
+                width: 100%;
+            }
+            .chart-container {
+                width: 100%;
+            }
+        }
+ </style>
+     <script src="dashboard.js"></script>
+	<script src="script.js"></script>
+	<script src="calendar.js"></script>
+</body>
+</html>

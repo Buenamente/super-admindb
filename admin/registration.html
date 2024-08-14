@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="styleadmin.css">
+	<link rel="stylesheet" href="dashboardadmin.css">
+
+	<title>SentiShield</title>
+</head>
+<style>
+/* General Styles */
+
+:root {
+    --primary-color: #007bff;
+    --primary-color-dark: #0056b3;
+    --secondary-color: #28a745;
+    --secondary-color-dark: #218838;
+    --background-color: #f4f4f9;
+    --text-color: #333;
+    --form-background: #fff;
+    --input-border-color: #ddd;
+    --input-border-focus: #007bff;
+    --input-box-shadow: rgba(0, 123, 255, 0.25);
+    --btn-text-color: #fff;
+}
+
+body.dark {
+    --primary-color: #0056b3;
+    --primary-color-dark: #004494;
+    --secondary-color: #218838;
+    --secondary-color-dark: #1e7e34;
+    --background-color: #333;
+    --text-color: #f4f4f9;
+    --form-background: #444;
+    --input-border-color: #555;
+    --input-border-focus: #66afe9;
+    --input-box-shadow: rgba(102, 175, 233, 0.25);
+    --btn-text-color: #fff;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: var(--text-color);
+  --primary-color: #0056b3;
+  --primary-color-dark: #0075ff;
+  --secondary-color: #218838;
+  --secondary-color-dark: #34d759;
+  --background-color: #fff;
+  --text-color: #000;
+  --form-background: #fff;
+  --input-border-color: #000;
+  --input-border-focus: #66afe9;
+  --input-box-shadow: rgba(79, 117, 147, 0.25);
+  --btn-text-color: #fff;
+}
+
+.table-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.registration-form {
+    background: var(--form-background);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: auto;
+    transition: box-shadow 0.3s ease;
+}
+
+.registration-form:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.registration-form h2 {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-size: 26px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.registration-form .form-group {
+    margin-bottom: 15px;
+}
+
+.registration-form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.registration-form .form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.registration-form .form-group input:focus {
+    border-color: var(--input-border-focus);
+    box-shadow: 0 0 0 2px var(--input-box-shadow);
+    outline: none;
+}
+
+.registration-form .pin-container {
+    display: flex;
+    align-items: center;
+}
+
+.registration-form .pin-container input {
+    flex: 2;
+    margin-right: 10px;
+    font-size: 16px;
+    padding: 12px;
+}
+
+.registration-form .pin-container button {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    background: var(--primary-color);
+    color: var(--btn-text-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.registration-form .pin-container button:hover {
+    background: var(--primary-color-dark);
+    transform: translateY(-2px);
+}
+
+.registration-form .btn-regenerate, 
+.registration-form .btn-register,
+.registration-form input[type="submit"],
+.registration-form .btn {
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.registration-form .btn-regenerate,
+.registration-form .btn {
+    background: var(--primary-color);
+    color: var(--btn-text-color);
+    margin-bottom: 10px;
+}
+
+.registration-form .btn-regenerate:hover,
+.registration-form .btn:hover {
+    background: var(--primary-color-dark);
+    transform: translateY(-2px);
+}
+
+.registration-form input[type="submit"],
+.registration-form .btn-register {
+    background: var(--secondary-color);
+    color: var(--btn-text-color);
+}
+
+.registration-form input[type="submit"]:hover,
+.registration-form .btn-register:hover {
+    background: var(--secondary-color-dark);
+    transform: translateY(-2px);
+}
+
+#content main .table-data {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 24px;
+    width: 100%;
+    color: var(--text-color);
+}
+
+#content main {
+    width: 100%;
+    padding: 36px 24px;
+    font-family: var(--poppins);
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .registration-form {
+        padding: 20px;
+    }
+
+    .registration-form h2 {
+        font-size: 22px;
+    }
+
+    .registration-form .form-group label,
+    .registration-form .form-group input,
+    .registration-form .pin-container input,
+    .registration-form .btn-regenerate,
+    .registration-form .btn-register,
+    .registration-form input[type="submit"],
+    .registration-form .btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .registration-form {
+        padding: 15px;
+    }
+
+    .registration-form h2 {
+        font-size: 20px;
+    }
+
+    .registration-form .form-group label,
+    .registration-form .form-group input,
+    .registration-form .pin-container input,
+    .registration-form .btn-regenerate,
+    .registration-form .btn-register,
+    .registration-form input[type="submit"],
+    .registration-form .btn {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+</style>
+
+</style>
+
+</style>
+<body>
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<img class="logo" src="pictures/horizontallogo.png" alt="logo" srcset="">
+		</a>
+		<ul class="side-menu top">
+			<li>
+				<a href="index.html">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="user.html">
+					<i class='bx bxs-user' ></i>
+					<span class="text">User Info</span>
+				</a>
+			</li>
+			<li>
+				<a href="historylogs.php">
+					<i class='bx bxs-calendar-check' ></i>
+					<span class="text">History Logs</span>
+				</a>
+			</li>
+			<li>
+				<a href="userActivities.html">
+					<i class='bx bxs-notification' ></i>
+					<span class="text">User Activities</span>
+				</a>
+			</li>
+			<li>
+				<a href="notification.html">
+					<i class='bx bxs-notification' ></i>
+					<span class="text">Alert/Notifications</span>
+				</a>
+			</li>
+			<li class="active">
+				<a href="registration.html">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Registration</span>
+				</a>
+			</li>
+		<ul class="side-menu">
+			<li>
+				<a href="../index.html" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<form action="#">
+				<div class="form-input">
+
+					<button  class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<div class="calendar">
+				<div class="cd">
+				<i class='bx bx-calendar'></i>
+			    </div>
+				<div id="calendar"></div>
+			</div>
+		
+			<div id="profile" class="profile">
+				<img src="assets/profile2.png" alt="Profile Picture" id="profile-picture" />
+				<div id="profile-dropdown" class="profile-dropdown">
+					<a href="#">Change Profile Picture</a>
+					<a href="#">Logout</a>
+				</div>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+				<div class="head-title">
+					<div class="left">
+						<h1>Registration</h1>
+					</div>
+				</div>
+				<div class="table-data">
+					<div class="order">
+						<div class="head">
+							<div class="registration-form">
+								<form id="register-form" action="registration.php" method="POST">
+									<div class="form-group">
+										<label for="rfid">RFID Tag</label>
+										<input type="text" id="rfid" name="rfid" required>
+									</div>
+									<div class="form-group">
+										<label for="name">Name</label>
+										<input type="text" id="name" name="name" required>
+									</div>
+									<div class="form-group">
+										<label for="Birthday">Birthday</label>
+										<input type="date" id="Birthday" name="Birthday" required>
+									</div>
+									<div class="form-group">
+										<label for="Address">Address</label>
+										<input type="text" id="Address" name="Address" required>
+									</div>
+									<div class="form-group">
+										<label for="Occupancy">Role</label>
+										<select name="role" id="role">
+                                            <option value="Admin"> Admin</option>
+                                            <option value="User">User</option>
+                                        </select>
+									</div>
+									<div class="form-group">
+										<label for="pin">PIN</label>
+										<div class="pin-container">
+											<input type="text" id="pin" name="pin" readonly>
+											<button type="button" class="btn" onclick="generatePin()">Generate PIN</button>
+										</div>
+									</div>
+									<input type="submit" value="Register">
+								</form>
+							</div>
+						</div>
+						
+					  <!-- dito kau mag add ng code  -->
+	
+					</div>
+				</div>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+
+<style>
+select#Occupancy{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+</style>
+
+
+
+
+	<!-- dito ko nilagay ibang code dahil ayaw mag run pag naka seperate file if kaya nyo solve paki solve hahaha -->
+	<script>
+		function generatePin() {
+			const pin = Math.floor(1000 + Math.random() * 9000); 
+			document.getElementById('pin').value = pin;
+		}
+		
+	</script>
+	<script>
+        const switchMode = document.getElementById('switch-mode');
+    
+        // Load dark mode setting from local storage
+        if (localStorage.getItem('dark-mode') === 'true') {
+            document.body.classList.add('dark');
+            switchMode.checked = true;
+        }
+    
+        switchMode.addEventListener('change', function () {
+            if (this.checked) {
+                document.body.classList.add('dark');
+                localStorage.setItem('dark-mode', 'true');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem('dark-mode', 'false');
+            }
+        });
+    
+        // TOGGLE SIDEBAR
+        const menuBar = document.querySelector('#content nav .bx.bx-menu');
+        const sidebar = document.getElementById('sidebar');
+    
+        menuBar.addEventListener('click', function () {
+            sidebar.classList.toggle('hide');
+        });
+    
+        const searchButton = document.querySelector('#content nav form .form-input button');
+        const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
+        const searchForm = document.querySelector('#content nav form');
+    
+        searchButton.addEventListener('click', function (e) {
+            if (window.innerWidth < 576) {
+                e.preventDefault();
+                searchForm.classList.toggle('show');
+                if (searchForm.classList.contains('show')) {
+                    searchButtonIcon.classList.replace('bx-search', 'bx-x');
+                } else {
+                    searchButtonIcon.classList.replace('bx-x', 'bx-search');
+                }
+            }
+        });
+    </script>
+    
+	<script src="scriptadmin.js"></script>
+	<script src="calendar.js"></script>
+    <script src="registration.js"></script>
+</body>
+</html>

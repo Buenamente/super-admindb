@@ -1,0 +1,176 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+*
+{
+box-sizing: border-box;
+outline: none !important;
+}
+
+body
+{
+background-color: #323440;
+}
+
+.login-form
+{
+position: relative;
+display: block;
+text-align: center;
+margin: 50px auto 0 auto;
+width: 400px;
+box-shadow: 0 0 20px 1px #222;
+}
+
+.login-form .login-top
+{
+position: relative;
+z-index: 11;
+background-color: #FFF;
+padding: 10px 45px;
+}
+
+.login-form .login-top h1
+{
+font-family: Montserrat;
+font-weight: normal;
+font-size: 40px;
+color: #2fbee8;
+letter-spacing: -1.7px;
+}
+
+.login-form input
+{
+display: block;
+font-family: Montserrat;
+}
+
+.login-form input[type="text"], .login-form input[type="password"]
+{
+margin: 10px auto;
+border-radius: 3px;
+padding: 10px;
+padding-left: 100px;
+border: 1px solid #CCC;
+box-shadow: 0 1px 2px 1px #F5F5F5 inset;
+background-color: #FEFEFE;
+color: #323440;
+width: 100%;
+transition: 0.3s all;
+}
+
+.login-form input[type="text"]:focus, .login-form input[type="password"]:focus
+{
+background-color: #f7f9fc;
+}
+
+.login-form .input-prefix
+{
+position: absolute;
+font-family: Montserrat;
+font-weight: bold;
+color: #888;
+font-size: 14px;
+margin-top: -40px;
+left: 60px;
+cursor: pointer;
+transition: 0.3s all;
+}
+
+.login-form .input-prefix:after
+{
+content: '';
+position: relative;
+display: block;
+top: 100%;
+left: 0;
+height: 2px;
+width: 0;
+background-color: #0aa4d1;
+transition: 0.3s all;
+}
+
+.login-form input:focus + .input-prefix
+{
+color: #0aa4d1;
+}
+
+.login-form input:focus + .input-prefix:after
+{
+width: 100%;
+}
+
+.login-form input[type="submit"]
+{
+border: none;
+background-image: linear-gradient(135deg, #22bae7 70%, #10acd9);
+color: #FFF;
+font-weight: 700;
+padding: 12px 47px;
+margin: 30px auto 20px auto;
+font-size: 14px;
+border-radius: 5px;
+cursor: pointer;
+transition: 0.3s all;
+}
+
+.login-form input[type="submit"]:hover,.login-form input[type="submit"]:focus
+{
+box-shadow: 0 0px 15px 2px #CCC;
+}
+
+.login-form .login-bottom
+{
+z-index: 10;
+position: relative;
+padding: 20px;
+background-color: #56596a;
+}
+
+.login-form .login-bottom a
+{
+color: #CCC;
+font-family: Montserrat;
+font-size: 13px;
+text-decoration: none;
+}
+
+.login-form .login-bottom a:hover
+{
+text-decoration: underline;
+}
+
+.login-form .login-bottom:after
+{
+content: '';
+position: absolute;
+top: 100%;
+left: 0px;
+border: 30px solid transparent;
+border-bottom-color: #56596a;
+transform: rotate(-45deg);
+margin-top: -30px;
+}
+
+.login-form .company-name
+{
+position: absolute;
+display: block;
+margin-top: 65px;
+left: 0;
+font-family: Montserrat;
+font-weight: 600;
+text-transform: uppercase;
+font-size: 18px;
+color: #6a6c79;
+}
+
+.login-form .company-name .company-icon
+{
+display: inline-block;
+height: 15px;
+width: 15px;
+margin-right: 7px;
+border: 3px solid #00c5ff;
+border-radius: 90px;
+}
+

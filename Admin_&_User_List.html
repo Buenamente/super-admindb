@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<!-- My CSS -->
+	<link rel="stylesheet" href="css/modalform.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/dashboard.css">
+	<title>AdminHub</title>
+</head>
+<body>
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<div class="logo1">
+			<img class="logo" src="pictures/horizontallogo.png" alt="logo" srcset="">
+		   </div>
+		</a>
+		<ul class="side-menu top">
+			<li>
+				<a href="dashboard.html">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="Create_Admin_account.html">
+					<i class='bx bxs-user' ></i>
+					<span class="text">Create Admin account</span>
+				</a>
+			</li>
+			<li>
+				<a href="Manage_Admin_account.php">
+					<i class='bx bxs-calendar-check' ></i>
+					<span class="text">Manage Admin account</span>
+				</a>
+			</li>
+			<li class="active">
+				<a href="Admin_&_User_List.html">
+					<i class='bx bxs-notification' ></i>
+					<span class="text">Admin & User List</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="index.html" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+            <i class='bx bx-menu' ></i>
+			<form action="#">
+				<div class="form-input">
+					<button class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<div class="calendar">
+				<div class="cd">
+				<i class='bx bx-calendar'></i>
+			    </div>
+				<div id="calendar"></div>
+			</div>
+			<div id="profile" class="profile">
+				<img src="assets/profile2.png" alt="Profile Picture" id="profile-picture" />
+				<div id="profile-dropdown" class="profile-dropdown">
+					<a href="#">Change Profile Picture</a>
+					<a href="#">Logout</a>
+				</div>
+        </nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Admin & User List</h1>
+				</div>
+			</div>
+			<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>Admin & User List</h3>
+					</div>
+                    <div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>List</h3>
+						<i class='bx bx-search' ></i>
+						<i class='bx bx-filter' ></i>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Role</th>
+                                <th>Status</th>
+								<th>Date Registered</th>
+                                <th>Details</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Kyle</td>
+								<td>Admin</td>
+								<td>active</td>
+                                <td>21-09-2024</td>
+								<td><button class="btn1" id="editButton">View</button></td>
+							</tr>
+							<tr>
+								<td>Aception</td>
+                                <td>User</td>
+								<td>active</td>
+								<td>01-10-2021</td>
+                                <td><button class="btn1" id="editButton2">View</button></td>						
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			 </div>
+				</div>
+			</div>
+				</div>
+			</div>
+		</main>
+		<div id="myModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<form id="modalForm">
+					<span><p class="txt">Viewing Only</p></span>
+					<label for="name" >Name:</label>
+					<input type="text" id="name" name="name" placeholder="Kyle" required>
+					<label for="birthday">Birthday</label>
+					<input class="bd" type="date" name="birthday" id="birthday">
+					<label for="address">Address:</label>
+					<input type="text" id="address" name="address" placeholder="Maybunga Blk 13 Pasig City" required>
+					<label for="contact">Contact Number:</label>
+					<input type="tel" id="contact" name="contact" placeholder="091235678" required>
+					<label for="email">Email Address:</label>
+					<input type="email" id="email" name="email" placeholder="Email@gmail.com" required>
+					<label for="role">Role:</label>
+					<input type="text" id="role" name="role" placeholder="admin" required>
+					<label for="role">RFID tag</label>
+					<input type="text" id="role" name="role" placeholder="234G-E9CA-23F3" required>
+					<label for="role">RFID tag</label>
+					<input type="text" id="role" name="role" placeholder="123456" required>
+				</form>
+			</div>
+		</div>
+       
+		<div id="myModal1" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<form id="modalForm1">
+					<span><p class="txt">Viewing Only</p></span>
+					<label for="name" >Name:</label>
+					<input type="text" id="name1" name="name" placeholder="Jerald" required>
+					<label for="birthday">Birthday</label>
+					<input class="bd" type="date" name="birthday" id="birthday1">
+					<label for="address">Address:</label>
+					<input type="text" id="address1" name="address" placeholder="Maybunga Blk 12 Pasig City" required>
+					<label for="contact">Contact Number:</label>
+					<input type="tel" id="contact1" name="contact" placeholder="091235678" required>
+					<label for="email">Email Address:</label>
+					<input type="email" id="email1" name="email" placeholder="Email@gmail.com" required>
+					<label for="role">Role:</label>
+					<input type="text" id="role1" name="role" placeholder="super-admin" required>
+					<label for="rfid">RFID tag</label>
+					<input type="text" id="rfid1" name="rfid" placeholder="234G-E9CA-23F3" required>
+					<label for="rfid">RFID tag</label>
+					<input type="text" id="rfid2" name="rfid" placeholder="123456" required>
+				</form>
+			</div>
+		</div>
+	</section>
+	<!-- CONTENT -->
+	<style>
+		button#editButton {
+			background: transparent;
+			padding: 5px;
+			border: none;
+			color: var(--light-text);
+			transition: color 0.3s;
+		}
+	</style>
+	<script src="modalform.js"></script>
+	<script src="script.js"></script>
+	<script src="calendar.js"></script>
+	<script src="closebtn.js"></script>
+</body>
+</html>
